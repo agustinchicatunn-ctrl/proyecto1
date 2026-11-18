@@ -5,7 +5,7 @@
       "blocks": {},
       "block_order": [],
       "settings": {
-        "eyebrow": "Ropa deportiva",
+        "eyebrow": "",
         "heading": "Ropa para entrenar",
         "text": "Envío a todo el país, 3 cuotas sin interés y 30 días para cambiar tu compra.",
         "button_label": "Ver productos",
@@ -39,11 +39,14 @@
         "m-2",
         "m-3"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "featured": {
       "type": "featured-products",
-      "settings": {}
+      "settings": {
+        "eyebrow": ""
+      }
     },
     "features": {
       "type": "features",
@@ -78,13 +81,15 @@
         "f-3",
         "f-4"
       ],
-      "settings": {}
+      "settings": {},
+      "disabled": true
     },
     "story": {
       "type": "image-with-text",
       "settings": {
         "text": "<p>Hacemos ropa deportiva para usar todos los días y que dure años.</p>"
-      }
+      },
+      "disabled": true
     },
     "testimonials": {
       "type": "testimonials",
@@ -100,14 +105,14 @@
           "type": "question",
           "settings": {
             "question": "¿Cuánto tarda el envío?",
-            "answer": "<p>Despachamos en 24 a 48 horas hábiles. La entrega suele demorar entre 2 y 5 días según tu zona.</p>"
+            "answer": "<p>Despachamos en 24 a 48 horas hábiles y la entrega suele demorar entre 2 y 5 días según tu zona. El envío es gratis en compras desde $50.000.</p>"
           }
         },
         "q-2": {
           "type": "question",
           "settings": {
             "question": "¿Qué medios de pago aceptan?",
-            "answer": "<p>Tarjetas de crédito y débito, transferencia bancaria y billeteras virtuales.</p>"
+            "answer": "<p>Tarjeta de crédito en 3 cuotas sin interés, tarjeta de débito, transferencia bancaria y billeteras virtuales.</p>"
           }
         },
         "q-3": {
@@ -131,11 +136,15 @@
         "q-3",
         "q-4"
       ],
-      "settings": {}
+      "settings": {
+        "eyebrow": ""
+      }
     },
     "newsletter": {
       "type": "newsletter",
-      "settings": {}
+      "settings": {
+        "text": "Te avisamos cuando llegan productos nuevos o hay promociones."
+      }
     }
   },
   "order": [
