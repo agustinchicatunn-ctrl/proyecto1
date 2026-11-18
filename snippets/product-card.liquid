@@ -1,0 +1,46 @@
+{%- comment -%}
+  Tarjeta de producto. Uso: {% render 'product-card', product: product %}
+  Sin producto, muestra un placeholder.
+{%- endcomment -%}
+<article class="card reveal">
+  {%- if product -%}
+    <a class="card__link" href="{{ product.url }}">
+      <div class="card__media">
+        {%- if product.featured_media -%}
+          {{
+            product.featured_media
+            | image_url: width: 900
+            | image_tag:
+              loading: 'lazy',
+              widths: '360, 540, 720, 900',
+              sizes: '(min-width: 990px) 25vw, (min-width: 750px) 33vw, 50vw',
+              alt: product.featured_media.alt
+          }}
+        {%- else -%}
+          {{ 'product-1' | placeholder_svg_tag: 'placeholder' }}
+        {%- endif -%}
+        {%- if product.compare_at_price > product.price -%}
+          <span class="badge">Oferta</span>
+        {%- elsif product.available == false -%}
+          <span class="badge badge--muted">Agotado</span>
+        {%- endif -%}
+      </div>
+      <div class="card__body">
+        <h3 class="card__title">{{ product.title }}</h3>
+        <p class="price">
+          {%- if product.price_varies -%}Desde {% endif -%}
+          {{ product.price | money }}
+          {%- if product.compare_at_price > product.price -%}
+            <s>{{ product.compare_at_price | money }}</s>
+          {%- endif -%}
+        </p>
+      </div>
+    </a>
+  {%- else -%}
+    <div class="card__media">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+    <div class="card__body">
+      <h3 class="card__title">Nombre del producto</h3>
+      <p class="price">{{ 1999 | money }}</p>
+    </div>
+  {%- endif -%}
+</article>

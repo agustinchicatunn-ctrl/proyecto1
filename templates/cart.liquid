@@ -1,0 +1,40 @@
+<section class="section">
+  <div class="container container--narrow">
+    <div class="section__head"><h1>Tu carrito</h1></div>
+    {%- if cart.item_count > 0 -%}
+      <form action="{{ routes.cart_url }}" method="post" class="cart">
+        <ul class="cart__items">
+          {%- for item in cart.items -%}
+            <li class="cart__item">
+              <a class="cart__thumb" href="{{ item.url }}">
+                {%- if item.image -%}{{ item.image | image_url: width: 200 | image_tag: loading: 'lazy', alt: item.title }}{%- endif -%}
+              </a>
+              <div class="cart__info">
+                <a href="{{ item.url }}"><strong>{{ item.product.title }}</strong></a>
+                {%- unless item.product.has_only_default_variant -%}<p class="muted">{{ item.variant.title }}</p>{%- endunless -%}
+                <p>{{ item.final_price | money }}</p>
+              </div>
+              <div class="cart__qty">
+                <label class="visually-hidden" for="qty-{{ forloop.index }}">Cantidad</label>
+                <input id="qty-{{ forloop.index }}" class="field field--qty" type="number" name="updates[]" value="{{ item.quantity }}" min="0">
+                <a class="link-muted" href="{{ item.url_to_remove }}">Quitar</a>
+              </div>
+              <p class="cart__line">{{ item.final_line_price | money }}</p>
+            </li>
+          {%- endfor -%}
+        </ul>
+        <div class="cart__summary">
+          <p class="cart__total"><span>Subtotal</span><strong>{{ cart.total_price | money_with_currency }}</strong></p>
+          <p class="muted">Impuestos y envío calculados en el checkout.</p>
+          <div class="btn-row">
+            <button class="btn btn--ghost" type="submit" name="update">Actualizar</button>
+            <button class="btn btn--primary" type="submit" name="checkout">Finalizar compra</button>
+          </div>
+        </div>
+      </form>
+    {%- else -%}
+      <p class="muted">Tu carrito está vacío.</p>
+      <a class="btn btn--primary" href="{{ routes.all_products_collection_url }}">Seguir comprando</a>
+    {%- endif -%}
+  </div>
+</section>

@@ -1,0 +1,51 @@
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <p class="logo-text">{{ shop.name }}</p>
+      {%- if section.settings.text != blank -%}
+        <p class="muted">{{ section.settings.text }}</p>
+      {%- endif -%}
+    </div>
+    {%- if section.settings.menu != blank -%}
+      <nav aria-label="Pie de página">
+        <ul class="footer__links">
+          {%- for link in section.settings.menu.links -%}
+            <li><a href="{{ link.url }}">{{ link.title }}</a></li>
+          {%- endfor -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+    <ul class="footer__social">
+      {%- if section.settings.instagram != blank -%}<li><a href="{{ section.settings.instagram }}" target="_blank" rel="noopener">Instagram</a></li>{%- endif -%}
+      {%- if section.settings.tiktok != blank -%}<li><a href="{{ section.settings.tiktok }}" target="_blank" rel="noopener">TikTok</a></li>{%- endif -%}
+      {%- if section.settings.facebook != blank -%}<li><a href="{{ section.settings.facebook }}" target="_blank" rel="noopener">Facebook</a></li>{%- endif -%}
+      {%- if section.settings.whatsapp != blank -%}<li><a href="{{ section.settings.whatsapp }}" target="_blank" rel="noopener">WhatsApp</a></li>{%- endif -%}
+    </ul>
+  </div>
+  <div class="container footer__bottom">
+    <small>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Todos los derechos reservados.</small>
+    {%- if section.settings.show_payment -%}
+      <ul class="payment-icons">
+        {%- for type in shop.enabled_payment_types -%}
+          <li>{{ type | payment_type_svg_tag: class: 'payment-icon' }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endif -%}
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Pie de página",
+  "settings": [
+    { "type": "textarea", "id": "text", "label": "Texto", "default": "Productos pensados para durar. Diseñados con cuidado, enviados con cariño." },
+    { "type": "link_list", "id": "menu", "label": "Menú", "default": "footer" },
+    { "type": "header", "content": "Redes sociales" },
+    { "type": "url", "id": "instagram", "label": "Instagram" },
+    { "type": "url", "id": "tiktok", "label": "TikTok" },
+    { "type": "url", "id": "facebook", "label": "Facebook" },
+    { "type": "url", "id": "whatsapp", "label": "WhatsApp" },
+    { "type": "checkbox", "id": "show_payment", "label": "Mostrar medios de pago", "default": true }
+  ]
+}
+{% endschema %}

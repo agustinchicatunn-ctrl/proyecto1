@@ -1,0 +1,28 @@
+<section class="marquee" aria-label="{{ section.settings.label | escape }}">
+  <div class="marquee__track">
+    {%- for i in (1..2) -%}
+      <ul class="marquee__list"{% if forloop.last %} aria-hidden="true"{% endif %}>
+        {%- for block in section.blocks -%}
+          <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
+        {%- endfor -%}
+      </ul>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Cinta animada",
+  "settings": [
+    { "type": "text", "id": "label", "label": "Etiqueta accesible", "default": "Beneficios" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Texto",
+      "settings": [{ "type": "text", "id": "text", "label": "Texto", "default": "Envío gratis" }]
+    }
+  ],
+  "presets": [{ "name": "Cinta animada", "blocks": [{ "type": "item" }, { "type": "item" }, { "type": "item" }] }]
+}
+{% endschema %}

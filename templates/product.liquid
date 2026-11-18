@@ -1,0 +1,65 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+<section class="section">
+  <div class="container product">
+    <div class="product__gallery">
+      {%- if product.media.size > 0 -%}
+        {%- for media in product.media limit: 6 -%}
+          <div class="product__media{% if forloop.first %} product__media--main{% endif %}">
+            {{
+              media.preview_image
+              | image_url: width: 1400
+              | image_tag:
+                loading: 'lazy',
+                widths: '600, 900, 1200, 1400',
+                sizes: '(min-width: 990px) 55vw, 100vw',
+                alt: media.alt
+            }}
+          </div>
+        {%- endfor -%}
+      {%- else -%}
+        <div class="product__media product__media--main">{{ 'product-1' | placeholder_svg_tag: 'placeholder' }}</div>
+      {%- endif -%}
+    </div>
+
+    <div class="product__info">
+      {%- if product.vendor != blank -%}<p class="eyebrow">{{ product.vendor }}</p>{%- endif -%}
+      <h1>{{ product.title }}</h1>
+      <p class="price price--lg" data-price>
+        {{ current_variant.price | money }}
+        {%- if current_variant.compare_at_price > current_variant.price -%}
+          <s>{{ current_variant.compare_at_price | money }}</s>
+        {%- endif -%}
+      </p>
+
+      {%- form 'product', product, class: 'product-form', data-product-form: '' -%}
+        {%- if product.has_only_default_variant -%}
+          <input type="hidden" name="id" value="{{ current_variant.id }}">
+        {%- else -%}
+          <label class="field-label" for="variant-select">Opción</label>
+          <select id="variant-select" name="id" class="field" data-variant-select>
+            {%- for variant in product.variants -%}
+              <option
+                value="{{ variant.id }}"
+                data-price="{{ variant.price | money | escape }}"
+                {% if variant == current_variant %}selected{% endif %}
+                {% unless variant.available %}disabled{% endunless %}
+              >
+                {{ variant.title }}{% unless variant.available %} — Agotado{% endunless %}
+              </option>
+            {%- endfor -%}
+          </select>
+        {%- endif -%}
+
+        <label class="field-label" for="quantity">Cantidad</label>
+        <input id="quantity" class="field field--qty" type="number" name="quantity" value="1" min="1">
+
+        <button class="btn btn--primary btn--block" type="submit" {% unless current_variant.available %}disabled{% endunless %}>
+          {%- if current_variant.available -%}Agregar al carrito{%- else -%}Agotado{%- endif -%}
+        </button>
+        {{ form | payment_button }}
+      {%- endform -%}
+
+      <div class="rte product__description">{{ product.description }}</div>
+    </div>
+  </div>
+</section>

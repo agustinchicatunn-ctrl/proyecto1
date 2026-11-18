@@ -1,0 +1,14 @@
+<style>
+  :root {
+    --color-bg: {{ settings.color_background }};
+    --color-surface: {{ settings.color_surface }};
+    --color-text: {{ settings.color_text }};
+    --color-muted: {{ settings.color_text | color_modify: 'alpha', 0.65 }};
+    --color-border: {{ settings.color_text | color_modify: 'alpha', 0.12 }};
+    --color-accent: {{ settings.color_accent }};
+    --color-accent-2: {{ settings.color_accent_2 }};
+    --color-on-accent: {{ settings.color_on_accent }};
+    --radius: {{ settings.radius }}px;
+    --page-width: {{ settings.page_width }}px;
+  }
+</style>
