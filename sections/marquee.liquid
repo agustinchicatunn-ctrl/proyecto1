@@ -1,7 +1,7 @@
 <section class="marquee" aria-label="{{ section.settings.label | escape }}">
   <div class="marquee__track">
-    {%- for i in (1..2) -%}
-      <ul class="marquee__list"{% if forloop.last %} aria-hidden="true"{% endif %}>
+    {%- for i in (1..4) -%}
+      <ul class="marquee__list"{% unless forloop.first %} aria-hidden="true"{% endunless %}>
         {%- for block in section.blocks -%}
           <li {{ block.shopify_attributes }}>{{ block.settings.text }}</li>
         {%- endfor -%}

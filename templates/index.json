@@ -2,24 +2,37 @@
   "sections": {
     "hero": {
       "type": "hero",
-      "blocks": {
-        "stat-1": { "type": "stat", "settings": { "value": "10k+", "label": "Clientes felices" } },
-        "stat-2": { "type": "stat", "settings": { "value": "4.9★", "label": "Calificación promedio" } },
-        "stat-3": { "type": "stat", "settings": { "value": "48h", "label": "Despacho" } }
-      },
-      "block_order": ["stat-1", "stat-2", "stat-3"],
+      "blocks": {},
+      "block_order": [],
       "settings": {}
     },
     "marquee": {
       "type": "marquee",
       "blocks": {
-        "m-1": { "type": "item", "settings": { "text": "Envío gratis desde $50.000" } },
-        "m-2": { "type": "item", "settings": { "text": "3 cuotas sin interés" } },
-        "m-3": { "type": "item", "settings": { "text": "Cambios sin costo" } },
-        "m-4": { "type": "item", "settings": { "text": "Pago 100% seguro" } },
-        "m-5": { "type": "item", "settings": { "text": "Atención personalizada" } }
+        "m-1": {
+          "type": "item",
+          "settings": {
+            "text": "Envío gratis desde $50.000"
+          }
+        },
+        "m-2": {
+          "type": "item",
+          "settings": {
+            "text": "3 cuotas sin interés"
+          }
+        },
+        "m-3": {
+          "type": "item",
+          "settings": {
+            "text": "Cambios sin costo"
+          }
+        }
       },
-      "block_order": ["m-1", "m-2", "m-3", "m-4", "m-5"],
+      "block_order": [
+        "m-1",
+        "m-2",
+        "m-3"
+      ],
       "settings": {}
     },
     "featured": {
@@ -29,12 +42,36 @@
     "features": {
       "type": "features",
       "blocks": {
-        "f-1": { "type": "feature", "settings": { "icon": "✦", "title": "Calidad premium", "text": "Materiales seleccionados y controles de calidad en cada pieza." } },
-        "f-2": { "type": "feature", "settings": { "icon": "⚡", "title": "Envío rápido", "text": "Despachamos en 24-48 h y te mandamos el seguimiento al instante." } },
-        "f-3": { "type": "feature", "settings": { "icon": "↺", "title": "Cambios fáciles", "text": "Tenés 30 días para cambiar o devolver tu compra sin vueltas." } },
-        "f-4": { "type": "feature", "settings": { "icon": "🔒", "title": "Compra segura", "text": "Pagá con tarjeta, transferencia o billeteras virtuales con total seguridad." } }
+        "f-2": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Envíos",
+            "text": "Despachamos en 24-48 h y te mandamos el código de seguimiento por correo."
+          }
+        },
+        "f-3": {
+          "type": "feature",
+          "settings": {
+            "icon": "↺",
+            "title": "Cambios y devoluciones",
+            "text": "Tenés 30 días para cambiar o devolver tu compra."
+          }
+        },
+        "f-4": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔒",
+            "title": "Medios de pago",
+            "text": "Tarjeta de crédito o débito, transferencia o billetera virtual."
+          }
+        }
       },
-      "block_order": ["f-1", "f-2", "f-3", "f-4"],
+      "block_order": [
+        "f-2",
+        "f-3",
+        "f-4"
+      ],
       "settings": {}
     },
     "story": {
@@ -43,23 +80,49 @@
     },
     "testimonials": {
       "type": "testimonials",
-      "blocks": {
-        "t-1": { "type": "testimonial", "settings": { "quote": "La calidad superó mis expectativas. Llegó rapidísimo y súper bien empaquetado.", "author": "Lucía M.", "detail": "Córdoba" } },
-        "t-2": { "type": "testimonial", "settings": { "quote": "Excelente atención. Tuve que cambiar un talle y lo resolvieron en un día.", "author": "Martín G.", "detail": "Buenos Aires" } },
-        "t-3": { "type": "testimonial", "settings": { "quote": "Ya es mi tercera compra. Diseño hermoso y precios justos. ¡Recomendadísimo!", "author": "Sofía R.", "detail": "Rosario" } }
-      },
-      "block_order": ["t-1", "t-2", "t-3"],
-      "settings": {}
+      "blocks": {},
+      "block_order": [],
+      "settings": {},
+      "disabled": true
     },
     "faq": {
       "type": "faq",
       "blocks": {
-        "q-1": { "type": "question", "settings": { "question": "¿Cuánto tarda el envío?", "answer": "<p>Despachamos en 24 a 48 horas hábiles. La entrega suele demorar entre 2 y 5 días según tu zona.</p>" } },
-        "q-2": { "type": "question", "settings": { "question": "¿Qué medios de pago aceptan?", "answer": "<p>Tarjetas de crédito y débito, transferencia bancaria y billeteras virtuales.</p>" } },
-        "q-3": { "type": "question", "settings": { "question": "¿Puedo cambiar o devolver mi compra?", "answer": "<p>Sí, tenés 30 días desde que recibís el pedido. El primer cambio es sin costo.</p>" } },
-        "q-4": { "type": "question", "settings": { "question": "¿Cómo sigo mi pedido?", "answer": "<p>Cuando despachamos tu compra te enviamos un correo con el código de seguimiento.</p>" } }
+        "q-1": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cuánto tarda el envío?",
+            "answer": "<p>Despachamos en 24 a 48 horas hábiles. La entrega suele demorar entre 2 y 5 días según tu zona.</p>"
+          }
+        },
+        "q-2": {
+          "type": "question",
+          "settings": {
+            "question": "¿Qué medios de pago aceptan?",
+            "answer": "<p>Tarjetas de crédito y débito, transferencia bancaria y billeteras virtuales.</p>"
+          }
+        },
+        "q-3": {
+          "type": "question",
+          "settings": {
+            "question": "¿Puedo cambiar o devolver mi compra?",
+            "answer": "<p>Sí, tenés 30 días desde que recibís el pedido. El primer cambio es sin costo.</p>"
+          }
+        },
+        "q-4": {
+          "type": "question",
+          "settings": {
+            "question": "¿Cómo sigo mi pedido?",
+            "answer": "<p>Cuando despachamos tu compra te enviamos un correo con el código de seguimiento.</p>"
+          }
+        }
       },
-      "block_order": ["q-1", "q-2", "q-3", "q-4"],
+      "block_order": [
+        "q-1",
+        "q-2",
+        "q-3",
+        "q-4"
+      ],
       "settings": {}
     },
     "newsletter": {
@@ -67,5 +130,14 @@
       "settings": {}
     }
   },
-  "order": ["hero", "marquee", "featured", "features", "story", "testimonials", "faq", "newsletter"]
+  "order": [
+    "hero",
+    "marquee",
+    "featured",
+    "features",
+    "story",
+    "testimonials",
+    "faq",
+    "newsletter"
+  ]
 }
